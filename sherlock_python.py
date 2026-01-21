@@ -66,7 +66,6 @@ num_TR = len(rdata_movie_ls[0][0])
 
 roitc_temp = []
 
-'''
 # Compute mean voxel activity at each TR for each subject
 for subject_number in range(num_subj):
     rdata = rdata_movie_ls[subject_number]
@@ -137,7 +136,6 @@ avg_corr_mat_heatmap.set(xlabel="Time (TR)", ylabel="Time (TR)",
                          yticks=ticks, yticklabels=tick_labels)
 plt.show()
 plt.clf()
-'''
 
 # Plot recall behavior for a specific subject
 subj_chosen = 1
@@ -147,7 +145,6 @@ ev = loadmat(path)["ev"][0, 0]
 subj_ID = list(ev.dtype.names)[subj_chosen]
 subj_data = ev[subj_ID][0, 0]
 
-'''
 # Extract movie and recall related data
 fullSL1 = subj_data["fullSL1"]
 fullSL2 = subj_data["fullSL2"] + fullSL1[-1, -1]
@@ -176,7 +173,6 @@ plt.xlabel("Recall time (TRs)")
 plt.ylabel("Movie time (TRs)")
 plt.show()
 plt.clf()
-'''
 
 # Compute matrices to find voxel pattern averages for each scene
 names = ["s"+str(x+1) for x in range(num_subj)]
@@ -322,4 +318,5 @@ sns.barplot(mdiag_recrec_btwnsubj, ax=axes[2])
 axes[2].set(title="Spatial Corr Between Subjects Recall vs. Recall", xlabel="Subject", ylabel="R")
 
 plt.show()
+
 plt.clf()
