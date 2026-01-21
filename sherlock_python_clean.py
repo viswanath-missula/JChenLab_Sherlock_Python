@@ -410,7 +410,6 @@ num_TR = len(rdata_movie_ls[0][0])
 # Compute mean voxel activity at each TR for each subject
 roitc_mean, roitc_untransposed = compute_mean_voxel_activity(rdata_movie_ls, num_subj, num_TR)
 
-r"""
 # Plot mean voxel activity per subject + across all subjects
 for iter in range(num_subj):
     plt.plot(roitc_untransposed[iter], color=colorlist[iter])
@@ -550,7 +549,7 @@ for t in range(len(tvec)):
 plt.show()
 plt.clf()
 plt.close('all')
-"""
+
 # Regress timecourse onto brain map
 def extract_roicorr(roi):
     path = r"C:\Users\vmiss\Documents\JChenLab\Research\Computational_Neuroscience\sherlock_nifti_kit_v2_withdata\intersubj\roicorr\ "[:-1] + roi + "_sherlock_movie_roicorr.mat"
@@ -575,4 +574,5 @@ hdr_copy["cal_min"] = 0.1
 new_mni = nib.Nifti1Image(rmap_3d, affine=mni_brain.affine, header=hdr_copy)
 
 save_path = r"C:\Users\vmiss\Documents\JChenLab\Research\Computational_Neuroscience\sherlock_nifti_kit_v2_withdata\intersubj\corrmap\hipptc_regressed_on_s1_map.nii"
+
 nib.save(new_mni, save_path)
